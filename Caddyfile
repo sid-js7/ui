@@ -25,5 +25,5 @@ spdarena.online: {
 }
 
 bot.spdarena.online {
-    reverse_proxy grammy-bot:8000
+    reverse_proxy tournament-bot:8000
 }
