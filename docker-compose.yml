@@ -1,0 +1,28 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+        VITE_TELEGRAM_BOT_URL: ${VITE_TELEGRAM_BOT_URL}
+    container_name: ui-builder
+    volumes:
+      - react_dist:/output
+
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile.caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - react_dist:/srv:ro
+      - caddy_config:/config
+
+volumes:
+  react_dist:
+  caddy_data:
+  caddy_config:

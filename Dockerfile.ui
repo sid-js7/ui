@@ -1,0 +1,19 @@
+FROM node:22-alpine As builder
+
+WORKDIR /ui
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+ARG VITE_API_URL
+ARG VITE_TELEGRAM_BOT_URL
+
+# Make them available to npm run build
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_TELEGRAM_BOT_URL=$VITE_TELEGRAM_BOT_URL
+
+RUN npm run build
+
+CMD ["sh", "-c", "rm -rf /output/* && cp -r /app/dist/* /output/"]
