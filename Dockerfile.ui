@@ -16,4 +16,4 @@ ENV VITE_TELEGRAM_BOT_URL=$VITE_TELEGRAM_BOT_URL
 
 RUN npm run build
 
-CMD ["sh", "-c", "rm -rf /output/* && cp -r /app/dist/* /output/"]
+CMD ["sh", "-c", "rm -rf /output/* && cp -r /ui/dist/* /output/"]
