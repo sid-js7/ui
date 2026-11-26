@@ -24,8 +24,16 @@ services:
       - caddy_data:/data
       - react_dist:/srv:ro
       - caddy_config:/config
+    networks:
+      - default
+      - caddy_net
+
 
 volumes:
   react_dist:
   caddy_data:
   caddy_config:
+
+networks:
+  caddy_net:
+    external: true

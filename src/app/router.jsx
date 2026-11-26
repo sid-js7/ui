@@ -27,7 +27,7 @@ export const createRouter = (store) => {
         { index: true, element: <LandingPage />, loader: () => { store.dispatch(fetchLanding()); return null; } },
         {
           // /verify-email/:token (also accepts /verify-email?token=...)
-          path: 'verify-email/:token?',
+          path: 'verification/:token?',
           element: <VerifyEmailPage />,
           loader: ({ params, request }) => {
             const token = params.token || new URL(request.url).searchParams.get('token');

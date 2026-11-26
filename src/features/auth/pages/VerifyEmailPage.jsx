@@ -81,7 +81,7 @@ export default function VerifyEmailPage() {
               <Link to="/" className={`${btn} border-2 border-ink text-ink hover:bg-ink hover:text-bg`}>Back to home</Link>
             </div>
           )}
-          {status === 'error' && <ResendForm />}
+          
           {status === 'invalid' && (
             <Link to="/" className={`${btn} mt-8 border-2 border-ink text-ink hover:bg-ink hover:text-bg`}>Back to home</Link>
           )}

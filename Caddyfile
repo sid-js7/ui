@@ -23,3 +23,7 @@ spdarena.online: {
         Referrer-Policy "strict-origin-when-cross-origin"
     }
 }
+
+bot.spdarena.online {
+    reverse_proxy grammy-bot:8000
+}
