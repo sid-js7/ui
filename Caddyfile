@@ -1,4 +1,4 @@
-spdarena.online: {
+spdarena.online {
     root * /srv
     encode zstd gzip
     file_server
